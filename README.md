@@ -8,8 +8,6 @@
 
 ## Run
 
-### Run master node 
-
 ```shell
 docker run 
   -v /atlas-application.properties:/opt/atlas/conf/atlas-application.properties
