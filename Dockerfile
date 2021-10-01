@@ -13,7 +13,7 @@ ENV MANAGE_LOCAL_HBASE=false
 
 # Install python
 RUN apt-get update
-RUN apt-get install -y python2.7
+RUN apt-get install -y python2.7 netcat
 
 # Create atlas user
 RUN groupadd -r -g 47144 atlas && useradd -r -u 47145 -g atlas atlas
@@ -29,8 +29,6 @@ ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 RUN ln -s /opt/atlas /opt/apache-atlas-${VERSION}
-
-RUN apt-get install -y netcat
 
 EXPOSE 21000
 
