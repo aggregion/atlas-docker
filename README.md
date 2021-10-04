@@ -17,8 +17,19 @@ docker run
   aggregion/atlas
 ```
 
+## Environment variables
+
+```shell
+CASSANDRA_HOST=${CASSANDRA_HOST:=cassandra}
+CASSANDRA_PORT=${CASSANDRA_PORT:=9160}
+ZOOKEEPER_HOST=${ZOOKEEPER_HOST:=zoo1,zoo2,zoo3}
+SOLR_HOST=${SOLR_HOST:=solr}
+SOLR_PORT=${SOLR_PORT:=8983}
+KAFKA_HOST=${KAFKA_HOST:=kafka}
+```
+
 
 ## ToDo
 
-- [ ] Add environment variables support for ZooKeeper, HBase, Kafka, etc.
+- [x] Add environment variables support for ZooKeeper, HBase, Kafka, etc.
 - [ ] Add more docs

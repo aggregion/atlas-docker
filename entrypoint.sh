@@ -1,5 +1,7 @@
 #!/bin/bash
 
+./configure.sh
+
 function wait_for_it()
 {
     local serviceport=$1
