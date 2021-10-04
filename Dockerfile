@@ -31,7 +31,7 @@ RUN chmod +x /entrypoint.sh
 ADD configure.sh /configure.sh
 RUN chmod +x /configure.sh
 
-ADD atlas-application.properties.template /opt/atlas/conf/atlas-application.properties.template
+ADD atlas-application.properties.template /opt/apache-atlas-${VERSION}/conf/atlas-application.properties.template
 
 RUN ln -s /opt/atlas /opt/apache-atlas-${VERSION}
 
