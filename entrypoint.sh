@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./configure.sh
+/configure.sh
 
 function wait_for_it()
 {
