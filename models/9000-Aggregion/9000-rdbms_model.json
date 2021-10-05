@@ -1,0 +1,397 @@
+{
+    "structDefs": [],
+    "classificationDefs": [],
+    "enumDefs": [
+        {
+          "name": "agg_rdbms_instance_type",
+          "description": "Type of instance",
+          "typeVersion": "1.0",
+          "elementDefs": [
+            {
+              "ordinal": 0,
+              "value": "clickhouse"
+            }
+          ]
+        },
+        {
+          "name": "agg_rdbms_field_type",
+          "description": "Type of field",
+          "typeVersion": "1.0",
+          "elementDefs": [
+            {
+              "ordinal": 0,
+              "value": "integer"
+            },
+            {
+              "ordinal": 1,
+              "value": "tinyint"
+            },
+            {
+              "ordinal": 2,
+              "value": "smallint"
+            },
+            {
+              "ordinal": 3,
+              "value": "bigint"
+            },
+            {
+              "ordinal": 4,
+              "value": "real"
+            },
+            {
+              "ordinal": 5,
+              "value": "double"
+            },
+            {
+              "ordinal": 6,
+              "value": "varchar"
+            },
+            {
+              "ordinal": 7,
+              "value": "char"
+            },
+            {
+              "ordinal": 8,
+              "value": "varbinary"
+            },
+            {
+              "ordinal": 9,
+              "value": "date"
+            },
+            {
+              "ordinal": 10,
+              "value": "timestamp"
+            },
+            {
+              "ordinal": 11,
+              "value": "string"
+            }
+          ]
+        }
+      ],
+    "entityDefs": [
+        {
+            "name": "agg_rdbms_instance",
+            "description": "Instance that the rdbms server is running on",
+            "superTypes": ["Referenceable"],
+            "typeVersion": "1.1",
+            "attributeDefs": [
+                {
+                    "name": "rdbms_type",
+                    "typeName": "agg_rdbms_instance_type",
+                    "isOptional": false,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": true,
+                    "relationshipCategory": "AGGREGATION"
+                },
+                {
+                    "name": "name",
+                    "typeName": "string",
+                    "isOptional": false,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": true
+                },
+                {
+                    "name": "sourceName",
+                    "typeName": "string",
+                    "isOptional": false,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": true
+                },
+                {
+                    "name": "platform",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "hostname",
+                    "typeName": "string",
+                    "isOptional": false,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "port",
+                    "typeName": "int",
+                    "isOptional": false,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "username",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "password",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "isPrivate",
+                    "typeName": "boolean",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false,
+                    "defaultValue": false
+                },
+                {
+                    "name": "isEnabled",
+                    "typeName": "boolean",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false,
+                    "defaultValue": true
+                }
+            ]
+        },
+        {
+            "name": "agg_rdbms_db",
+            "description": "a database (schema) in an rdbms",
+            "superTypes": ["Referenceable"],
+            "typeVersion": "1.1",
+            "attributeDefs": [
+                {
+                    "name": "name",
+                    "typeName": "string",
+                    "isOptional": false,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "sourceName",
+                    "typeName": "string",
+                    "isOptional": false,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": true
+                },
+                {
+                    "name": "isPrivate",
+                    "typeName": "boolean",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false,
+                    "defaultValue": false
+                },
+                {
+                    "name": "isEnabled",
+                    "typeName": "boolean",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false,
+                    "defaultValue": true
+                }
+            ]
+        },
+        {
+            "name": "agg_rdbms_table",
+            "description": "a table in an rdbms database (schema)",
+            "superTypes": ["Referenceable"],
+            "typeVersion": "1.2",
+            "attributeDefs": [
+                {
+                    "name": "name",
+                    "typeName": "string",
+                    "isOptional": false,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "sourceName",
+                    "typeName": "string",
+                    "isOptional": false,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": true
+                },
+                {
+                    "name": "type",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "isPrivate",
+                    "typeName": "boolean",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false,
+                    "defaultValue": false
+                },
+                {
+                    "name": "isEnabled",
+                    "typeName": "boolean",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false,
+                    "defaultValue": true
+                },
+                {
+                    "name": "size",
+                    "typeName": "int",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "updateFrequency",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                }
+            ]
+        },
+        {
+            "name": "agg_rdbms_field",
+            "description": "a field in an rdbms table",
+            "superTypes": ["Referenceable"],
+            "typeVersion": "1.2",
+            "attributeDefs": [
+                {
+                    "name": "name",
+                    "typeName": "string",
+                    "isOptional": false,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "sourceName",
+                    "typeName": "string",
+                    "isOptional": false,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": true
+                },
+                {
+                    "name": "dataType",
+                    "typeName": "agg_rdbms_field_type",
+                    "isOptional": false,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": true
+                },
+                {
+                    "name": "isPrivate",
+                    "typeName": "boolean",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false,
+                    "defaultValue": false
+                },
+                {
+                    "name": "isEnabled",
+                    "typeName": "boolean",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false,
+                    "defaultValue": true
+                }
+            ]
+        }
+    ],
+    "relationshipDefs": [
+    {
+      "category": "RELATIONSHIP",
+      "name": "agg_rdbms_instance_db",
+      "description": "agg_rdbms_instance_db",
+      "typeVersion": "1.1",
+      "attributeDefs": [
+    ],
+      "relationshipCategory": "COMPOSITION",
+      "propagateTags": "ONE_TO_TWO",
+      "endDef1": {
+        "type": "agg_rdbms_instance",
+        "name": "db",
+        "isContainer": true,
+        "cardinality": "SET",
+        "isLegacyAttribute": false
+      },
+      "endDef2": {
+        "type": "agg_rdbms_db",
+        "name": "instance",
+        "isContainer": false,
+        "cardinality": "SINGLE",
+        "isLegacyAttribute": false
+      }
+    },
+    {
+      "category": "RELATIONSHIP",
+      "name": "agg_rdbms_db_table",
+      "description": "self_relation",
+      "typeVersion": "1.1",
+      "attributeDefs": [
+    ],
+      "relationshipCategory": "COMPOSITION",
+      "propagateTags": "ONE_TO_TWO",
+      "endDef1": {
+        "type": "agg_rdbms_db",
+        "name": "table",
+        "isContainer": true,
+        "cardinality": "SET",
+        "isLegacyAttribute": false
+      },
+      "endDef2": {
+        "type": "agg_rdbms_table",
+        "name": "db",
+        "isContainer": false,
+        "cardinality": "SINGLE",
+        "isLegacyAttribute": false
+      }
+    },
+    {
+      "category": "RELATIONSHIP",
+      "name": "agg_rdbms_table_field",
+      "description": "agg_rdbms_table_field",
+      "typeVersion": "1.1",
+      "attributeDefs": [
+    ],
+      "relationshipCategory": "COMPOSITION",
+      "propagateTags": "ONE_TO_TWO",
+      "endDef1": {
+        "type": "agg_rdbms_table",
+        "name": "field",
+        "isContainer": true,
+        "cardinality": "SET",
+        "isLegacyAttribute": false
+      },
+      "endDef2": {
+        "type": "agg_rdbms_field",
+        "name": "table",
+        "isContainer": false,
+        "cardinality": "SINGLE",
+        "isLegacyAttribute": false
+      }
+    }
+  ]
+}
