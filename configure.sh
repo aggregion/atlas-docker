@@ -12,3 +12,11 @@ export SOLR_PORT=${SOLR_PORT:=8983}
 export KAFKA_HOST=${KAFKA_HOST:=kafka}
 
 envsubst < ${TEMPLATE_FILE} > ${PROPS_FILE}
+
+encryptedPwd=$(${ATLAS_HOME}/bin/cputil.py -g -u admin -p "${ATLAS_USER_ADMIN_PASSWORD}" -s)
+encryptedPwdDST=$(${ATLAS_HOME}/bin/cputil.py -g -u datasteward -p "${ATLAS_USER_DST_PASSWORD}" -s)
+encryptedPwdDSCI=$(${ATLAS_HOME}/bin/cputil.py -g -u datascientist -p "${ATLAS_USER_DSCI_PASSWORD}" -s)
+
+echo "admin=ADMIN::${encryptedPwd}" > ${ATLAS_HOME}/conf/users-credentials.properties
+echo "datasteward=DATA_STEWARD::${encryptedPwdDST}" >> ${ATLAS_HOME}/conf/users-credentials.properties
+echo "datascientist=DATA_SCIENTIST::${encryptedPwdDSCI}" >> ${ATLAS_HOME}/conf/users-credentials.properties
