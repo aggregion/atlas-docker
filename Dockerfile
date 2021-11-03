@@ -32,7 +32,7 @@ ADD configure.sh /configure.sh
 RUN chmod +x /configure.sh
 
 ADD atlas-application.properties.template /opt/apache-atlas-${VERSION}/conf/atlas-application.properties.template
-ADD models/9000-Aggregion/9000-rdbms_model.json /opt/apache-atlas-${VERSION}/models/9000-Aggregion/9000-rdbms_model.json
+ADD models/9000-Aggregion/ /opt/apache-atlas-${VERSION}/models/9000-Aggregion/
 
 RUN ln -s /opt/atlas /opt/apache-atlas-${VERSION}
 
