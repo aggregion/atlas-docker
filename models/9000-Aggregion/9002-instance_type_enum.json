@@ -1,0 +1,16 @@
+{
+  "enumDefs": [
+    {
+      "category": "ENUM",
+      "name": "agg_rdbms_instance_type",
+      "description": "Type of instance",
+      "typeVersion": "1.0",
+      "elementDefs": [
+        {
+          "ordinal": 0,
+          "value": "clickhouse"
+        }
+      ]
+    }
+  ]
+}

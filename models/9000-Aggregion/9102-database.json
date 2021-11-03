@@ -1,0 +1,48 @@
+{
+  "entityDefs": [
+    {
+      "category": "ENTITY",
+      "serviceType": "datasourses",
+      "name": "agg_rdbms_db",
+      "description": "A database (schema) in an rdbms",
+      "superTypes": ["Referenceable"],
+      "typeVersion": "1.1",
+      "attributeDefs": [
+        {
+          "name": "name",
+          "typeName": "string",
+          "isOptional": false,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": false
+        },
+        {
+          "name": "sourceName",
+          "typeName": "string",
+          "isOptional": false,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true
+        },
+        {
+          "name": "isPrivate",
+          "typeName": "boolean",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": false,
+          "defaultValue": false
+        },
+        {
+          "name": "isEnabled",
+          "typeName": "boolean",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": false,
+          "defaultValue": true
+        }
+      ]
+    }
+  ]
+}

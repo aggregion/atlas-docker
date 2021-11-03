@@ -1,0 +1,40 @@
+{
+  "entityDefs": [{
+    "superTypes": [
+      "Referenceable"
+    ],
+    "serviceType": "infoservices",
+    "category": "ENTITY",
+    "name": "agg_dataset",
+    "description": "Dataset",
+    "typeVersion": "1.1",
+    "attributeDefs": [{
+        "name": "nameRu",
+        "typeName": "string",
+        "isOptional": false,
+        "cardinality": "SINGLE",
+        "isUnique": false,
+        "isIndexable": false,
+        "includeInNotification": false
+      },
+      {
+        "name": "nameEn",
+        "typeName": "string",
+        "isOptional": false,
+        "cardinality": "SINGLE",
+        "isUnique": false,
+        "isIndexable": false,
+        "includeInNotification": false
+      },
+      {
+        "name": "description",
+        "typeName": "string",
+        "isOptional": false,
+        "cardinality": "SINGLE",
+        "isUnique": false,
+        "isIndexable": false,
+        "includeInNotification": false
+      }
+    ]
+  }]
+}

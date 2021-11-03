@@ -1,0 +1,23 @@
+{
+  "enumDefs": [
+    {
+      "category": "ENUM",
+      "version": 1,
+      "name": "visibility_area",
+      "description": "Visibility area",
+      "typeVersion": "1.0",
+      "elementDefs": [
+        {
+          "value": "private",
+          "description": "Частные данные",
+          "ordinal": 1
+        },
+        {
+          "value": "group_internal",
+          "description": "Метаданные видимы только внутри экосистемы (группы компаний)",
+          "ordinal": 2
+        }
+      ]
+    }
+  ]
+}

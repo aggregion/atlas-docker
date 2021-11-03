@@ -1,0 +1,23 @@
+{
+  "enumDefs": [
+    {
+      "category": "ENUM",
+      "version": 1,
+      "name": "business_status",
+      "description": "Business status",
+      "typeVersion": "1.0",
+      "elementDefs": [
+        {
+          "value": "active",
+          "description": "Активен",
+          "ordinal": 1
+        },
+        {
+          "value": "blocked",
+          "description": "Блокирован",
+          "ordinal": 2
+        }
+      ]
+    }
+  ]
+}
