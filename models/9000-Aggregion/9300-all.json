@@ -167,6 +167,15 @@
           "isUnique": false,
           "isIndexable": true,
           "includeInNotification": false
+        },
+        {
+          "name": "updateFrequency",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
         }
       ],
       "superTypes": [],
