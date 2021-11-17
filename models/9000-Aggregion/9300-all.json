@@ -4,7 +4,7 @@
       "category": "CLASSIFICATION",
       "name": "business_term",
       "description": "business_term",
-      "typeVersion": "1.0",
+      "typeVersion": "1.1",
       "attributeDefs": [{
           "name": "nameEn",
           "typeName": "string",
@@ -49,6 +49,15 @@
           "isUnique": false,
           "isIndexable": true,
           "includeInNotification": false
+        },
+        {
+          "name": "dataOwner",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
         }
       ],
       "superTypes": [],
@@ -69,7 +78,7 @@
       "category": "CLASSIFICATION",
       "name": "computed_attribute",
       "description": "computed_attribute",
-      "typeVersion": "1.0",
+      "typeVersion": "1.1",
       "attributeDefs": [
         {
           "name": "measurementUnit",
@@ -118,7 +127,7 @@
       "category": "CLASSIFICATION",
       "name": "static_attribute",
       "description": "static_attribute",
-      "typeVersion": "1.0",
+      "typeVersion": "1.1",
       "attributeDefs": [],
       "superTypes": [
         "business_term"
@@ -130,7 +139,7 @@
       "category": "CLASSIFICATION",
       "name": "agg_dataset_classification",
       "description": "agg_dataset_classification",
-      "typeVersion": "1.0",
+      "typeVersion": "1.1",
       "attributeDefs": [
         {
           "name": "confidentiality",
@@ -170,6 +179,15 @@
         },
         {
           "name": "updateFrequency",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "dataOwner",
           "typeName": "string",
           "isOptional": true,
           "cardinality": "SINGLE",
