@@ -27,44 +27,40 @@ jobs:
         id: buildx
         uses: docker/setup-buildx-action@v1
 
-      - name: Build and push
-        id: docker_build
-        uses: docker/build-push-action@v2
-        with:
-          context: ./
-          file: ./Dockerfile
-          # push: true
-          # tags: ${{ secrets.DOCKER_HUB_USERNAME }}/atlas:latest
-          run: |
-            set +e
-            set -x
-            git_hash=${GITHUB_SHA::8}
-            git_branch=$(echo ${GITHUB_REF} | sed 's;refs/heads/;;' | sed -r 's/[:/.]+/-/g' | tr -dc 'a-zA-Z0-9_-')
-            if [[ "$GITHUB_REF" != "refs/heads/"* ]]; then
-              unset git_branch
-            else
-              git_tag=$(git tag --contains=${git_branch} 2>/dev/null | sed -r 's/[:/.]+/-/g' | head -n 1 | tr -dc 'a-z0-9A-Z_-')
-            fi
-            if [[ "$git_branch" == *"master"* ]]; then
-              othertags="latest"
-            fi
-            image=${{env.IMAGE_NAME}}
-            set -e
-            echo "::group::Build image"
-            docker build \
-              --build-arg "BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
-              --build-arg "BUILD_GIT_BRANCH=$git_branch" \
-              --build-arg "BUILD_GIT_HASH=$git_hash" \
-              --build-arg "BUILD_GIT_TAG=$git_tag" \
-              -f app.dockerfile \
-              -t $image:$git_hash .
-            echo "::endgroup::"
-            echo "::group::Push images"
-            for tag in $git_hash $git_tag $git_branch ${{env.INPUT_CUSTOMTAG}} $othertags; do
-              docker tag $image:$git_hash $image:$tag
-              docker push $image:$tag
-            done
-            echo "::endgroup::"
-
-      - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
+      - name: Build and Push Docker Images
+        run: |
+          set +e
+          set -x
+          git_hash=${GITHUB_SHA::8}
+          git_branch=$(echo ${GITHUB_REF} | sed 's;refs/heads/;;' | sed -r 's/[:/.]+/-/g' | tr -dc 'a-zA-Z0-9_-')
+          git_branch_build=""
+          cache_tag="develop"
+          if [[ "$GITHUB_REF" != "refs/heads/"* ]]; then
+            unset git_branch
+          else
+            git_branch_build="$git_branch-$git_hash-$GITHUB_RUN_NUMBER"
+            git_tag=$(git tag --contains=${git_branch} 2>/dev/null | sed -r 's/[:/.]+/-/g' | head -n 1 | tr -dc 'a-z0-9A-Z_-')
+            cache_tag="$git_branch"
+          fi
+          if [[ "$git_branch" == *"master"* ]]; then
+            othertags="latest"
+          fi
+          image=${{env.IMAGE_NAME}}
+          set -e
+          echo "::group::Build image"
+          DOCKER_BUILDKIT=1 docker build \
+            --cache-from $image:$cache_tag \
+            --build-arg BUILDKIT_INLINE_CACHE=1 \
+            --build-arg "BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
+            --build-arg "BUILD_GIT_BRANCH=$git_branch" \
+            --build-arg "BUILD_GIT_HASH=$git_hash" \
+            --build-arg "BUILD_GIT_TAG=$git_tag" \
+            -f Dockerfile \
+            -t $image:$git_hash .
+          echo "::endgroup::"
+          echo "::group::Push images"
+          for tag in $git_hash $git_tag $git_branch $git_branch_build ${{env.INPUT_CUSTOMTAG}} $othertags $cache_tag; do
+            docker tag $image:$git_hash $image:$tag
+            docker push $image:$tag
+          done
+          echo "::endgroup::"
