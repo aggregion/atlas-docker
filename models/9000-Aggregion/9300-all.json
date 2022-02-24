@@ -4,7 +4,7 @@
       "category": "CLASSIFICATION",
       "name": "business_term",
       "description": "business_term",
-      "typeVersion": "1.2",
+      "typeVersion": "1.3",
       "attributeDefs": [{
           "name": "nameEn",
           "typeName": "string",
@@ -53,6 +53,15 @@
         {
           "name": "dataOwner",
           "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "matchingAttribute",
+          "typeName": "matching_attribute",
           "isOptional": true,
           "cardinality": "SINGLE",
           "isUnique": false,
