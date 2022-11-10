@@ -213,3 +213,4 @@ atlas.search.gremlin.enable=false
 #########  UI Configuration ########
 
 #atlas.ui.default.version=v2
+atlas.ui.editable.entity.types=*

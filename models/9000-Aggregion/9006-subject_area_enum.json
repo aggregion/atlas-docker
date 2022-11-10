@@ -1,0 +1,15 @@
+{
+  "enumDefs": [
+    {
+      "category": "ENUM",
+      "version": 1,
+      "name": "subject_area",
+      "description": "Subject area",
+      "typeVersion": "1.0",
+      "elementDefs": [{
+        "value": "undefined",
+        "ordinal": 1
+      }]
+    }
+  ]
+}

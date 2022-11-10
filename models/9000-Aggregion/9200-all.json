@@ -1,0 +1,96 @@
+{
+  "relationshipDefs": [
+    {
+      "category": "RELATIONSHIP",
+      "name": "agg_rdbms_instance_db",
+      "description": "agg_rdbms_instance_db",
+      "typeVersion": "1.1",
+      "attributeDefs": [],
+      "relationshipCategory": "COMPOSITION",
+      "propagateTags": "ONE_TO_TWO",
+      "endDef1": {
+        "type": "agg_rdbms_instance",
+        "name": "db",
+        "isContainer": true,
+        "cardinality": "SET",
+        "isLegacyAttribute": false
+      },
+      "endDef2": {
+        "type": "agg_rdbms_db",
+        "name": "instance",
+        "isContainer": false,
+        "cardinality": "SINGLE",
+        "isLegacyAttribute": false
+      }
+    },
+    {
+      "category": "RELATIONSHIP",
+      "name": "agg_rdbms_db_table",
+      "description": "self_relation",
+      "typeVersion": "1.1",
+      "attributeDefs": [],
+      "relationshipCategory": "COMPOSITION",
+      "propagateTags": "ONE_TO_TWO",
+      "endDef1": {
+        "type": "agg_rdbms_db",
+        "name": "table",
+        "isContainer": true,
+        "cardinality": "SET",
+        "isLegacyAttribute": false
+      },
+      "endDef2": {
+        "type": "agg_rdbms_table",
+        "name": "db",
+        "isContainer": false,
+        "cardinality": "SINGLE",
+        "isLegacyAttribute": false
+      }
+    },
+    {
+      "category": "RELATIONSHIP",
+      "name": "agg_rdbms_table_field",
+      "description": "agg_rdbms_table_field",
+      "typeVersion": "1.1",
+      "attributeDefs": [],
+      "relationshipCategory": "COMPOSITION",
+      "propagateTags": "ONE_TO_TWO",
+      "endDef1": {
+        "type": "agg_rdbms_table",
+        "name": "field",
+        "isContainer": true,
+        "cardinality": "SET",
+        "isLegacyAttribute": false
+      },
+      "endDef2": {
+        "type": "agg_rdbms_field",
+        "name": "table",
+        "isContainer": false,
+        "cardinality": "SINGLE",
+        "isLegacyAttribute": false
+      }
+    },
+    {
+      "category": "RELATIONSHIP",
+      "name": "table_ds",
+      "description": "table_ds",
+      "typeVersion": "1.1",
+      "attributeDefs": [],
+      "relationshipCategory": "ASSOCIATION",
+      "propagateTags": "NONE",
+      "endDef1": {
+        "type": "agg_rdbms_table",
+        "name": "dataset",
+        "isContainer": false,
+        "cardinality": "SINGLE",
+        "isLegacyAttribute": false
+      },
+      "endDef2": {
+        "type": "agg_dataset",
+        "name": "table",
+        "isContainer": false,
+        "cardinality": "SINGLE",
+        "isLegacyAttribute": false
+      }
+    }
+  ]
+}

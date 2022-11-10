@@ -1,0 +1,28 @@
+{
+  "enumDefs": [
+    {
+      "category": "ENUM",
+      "version": 1,
+      "name": "confidentiality_type",
+      "description": "Confidentiality type",
+      "typeVersion": "1.0",
+      "elementDefs": [
+        {
+          "value": "unclassified",
+          "description": "Доступно",
+          "ordinal": 1
+        },
+        {
+          "value": "confidential",
+          "description": "Конфиденциально",
+          "ordinal": 2
+        },
+        {
+          "value": "strictly_confidential",
+          "description": "Строго-конфиденциально",
+          "ordinal": 3
+        }
+      ]
+    }
+  ]
+}

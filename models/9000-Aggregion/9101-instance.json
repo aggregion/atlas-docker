@@ -1,0 +1,97 @@
+{
+  "entityDefs": [
+    {
+      "category": "ENTITY",
+      "serviceType": "datasourses",
+      "name": "agg_rdbms_instance",
+      "description": "Instance that the rdbms server is running on",
+      "superTypes": ["Referenceable"],
+      "typeVersion": "1.1",
+      "attributeDefs": [
+        {
+          "name": "rdbms_type",
+          "typeName": "agg_rdbms_instance_type",
+          "isOptional": false,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true,
+          "relationshipCategory": "AGGREGATION"
+        },
+        {
+          "name": "name",
+          "typeName": "string",
+          "isOptional": false,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true
+        },
+        {
+          "name": "sourceName",
+          "typeName": "string",
+          "isOptional": false,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true
+        },
+        {
+          "name": "platform",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": false
+        },
+        {
+          "name": "hostname",
+          "typeName": "string",
+          "isOptional": false,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": false
+        },
+        {
+          "name": "port",
+          "typeName": "int",
+          "isOptional": false,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": false
+        },
+        {
+          "name": "username",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": false
+        },
+        {
+          "name": "password",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": false
+        },
+        {
+          "name": "isPrivate",
+          "typeName": "boolean",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": false,
+          "defaultValue": false
+        },
+        {
+          "name": "isEnabled",
+          "typeName": "boolean",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": false,
+          "defaultValue": true
+        }
+      ]
+    }
+  ]
+}

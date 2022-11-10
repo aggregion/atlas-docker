@@ -1,0 +1,54 @@
+{
+  "enumDefs": [{
+    "name": "matching_attribute",
+    "description": "list of attributes to match",
+    "typeVersion": "1.0",
+    "elementDefs": [
+      {
+        "ordinal": 1,
+        "value": "last_name",
+        "description": "Last name"
+      },
+      {
+        "ordinal": 2,
+        "value": "first_name",
+        "description": "First name"
+      },
+      {
+        "ordinal": 3,
+        "value": "patronymic",
+        "description": "Patronymic"
+      },
+      {
+        "ordinal": 4,
+        "value": "phone",
+        "description": "Customers phone number"
+      },
+      {
+        "ordinal": 5,
+        "value": "passport",
+        "description": "Customers passport number"
+      },
+      {
+        "ordinal": 6,
+        "value": "birthday",
+        "description": "Customers birthday date"
+      },
+      {
+        "ordinal": 7,
+        "value": "email",
+        "description": "customers email"
+      },
+      {
+        "ordinal": 8,
+        "value": "gender",
+        "description": "Customers gender"
+      },
+      {
+        "ordinal": 9,
+        "value": "agreement",
+        "description": "Consent of the client to the processing of personal data"
+      }
+    ]
+  }]
+}

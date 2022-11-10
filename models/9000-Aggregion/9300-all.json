@@ -1,0 +1,212 @@
+{
+  "classificationDefs": [
+    {
+      "category": "CLASSIFICATION",
+      "name": "business_term",
+      "description": "business_term",
+      "typeVersion": "1.3",
+      "attributeDefs": [{
+          "name": "nameEn",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "status",
+          "typeName": "business_status",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "confidentiality",
+          "typeName": "confidentiality_type",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "visibilityArea",
+          "typeName": "visibility_area",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "subjectArea",
+          "typeName": "subject_area",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "dataOwner",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "matchingAttribute",
+          "typeName": "matching_attribute",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        }
+      ],
+      "superTypes": [],
+      "entityTypes": []
+    },
+    {
+      "category": "CLASSIFICATION",
+      "name": "entity",
+      "description": "entity",
+      "typeVersion": "1.0",
+      "attributeDefs": [],
+      "superTypes": [
+        "business_term"
+      ],
+      "entityTypes": []
+    },
+    {
+      "category": "CLASSIFICATION",
+      "name": "computed_attribute",
+      "description": "computed_attribute",
+      "typeVersion": "1.1",
+      "attributeDefs": [
+        {
+          "name": "measurementUnit",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "calculationMethod",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "minimalCut",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "aggregationMethodology",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        }
+      ],
+      "superTypes": [
+        "business_term"
+      ],
+      "entityTypes": [],
+      "subTypes": []
+    },
+    {
+      "category": "CLASSIFICATION",
+      "name": "static_attribute",
+      "description": "static_attribute",
+      "typeVersion": "1.1",
+      "attributeDefs": [],
+      "superTypes": [
+        "business_term"
+      ],
+      "entityTypes": [],
+      "subTypes": []
+    },
+    {
+      "category": "CLASSIFICATION",
+      "name": "agg_dataset_classification",
+      "description": "agg_dataset_classification",
+      "typeVersion": "1.1",
+      "attributeDefs": [
+        {
+          "name": "confidentiality",
+          "typeName": "confidentiality_type",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "visibilityArea",
+          "typeName": "visibility_area",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "detailing",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "clientAudienceSource",
+          "typeName": "boolean",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "updateFrequency",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        },
+        {
+          "name": "dataOwner",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "isUnique": false,
+          "isIndexable": true,
+          "includeInNotification": false
+        }
+      ],
+      "superTypes": [],
+      "entityTypes": []
+    }
+  ]
+}
