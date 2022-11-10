@@ -3,7 +3,7 @@ atlas.graph.storage.hostname=${CASSANDRA_HOST}
 atlas.graph.storage.clustername=${CASSANDRA_HOST}
 atlas.graph.storage.port=${CASSANDRA_PORT}
 #
-atlas.EntityAuditRepository.impl=org.apache.atlas.repository.audit.CassandraBasedAuditRepository
+atlas.EntityAuditRepository.impl=org.apache.atlas.repository.audit.NoopEntityAuditRepository
 
 atlas.graph.index.search.backend=solr
 
