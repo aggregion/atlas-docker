@@ -19,7 +19,7 @@ RUN apt-get install -y python2.7 netcat gettext-base
 RUN groupadd -r -g 47144 atlas && useradd -r -u 47145 -g atlas atlas
 
 # Add files
-ADD atlas.tar.gz /opt
+COPY atlas.tar.gz /opt/atlas.tar.gz
 RUN cd /opt && tar xzf atlas.tar.gz
 
 ADD entrypoint.sh /entrypoint.sh
