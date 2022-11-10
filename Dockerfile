@@ -20,9 +20,7 @@ RUN groupadd -r -g 47144 atlas && useradd -r -u 47145 -g atlas atlas
 
 # Add files
 ADD atlas.tar.gz /opt
-
-# Start script
-RUN mkdir -p ${ATLAS_HOME}
+RUN cd /opt && tar xzf atlas.tar.gz
 
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
