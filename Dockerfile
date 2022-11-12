@@ -31,6 +31,8 @@ RUN cp /tmp/atlas-index-repair/atlas-index-repair-tool-${VERSION}.jar "${ATLAS_H
 RUN rm -rf /tmp/atlas-index-repair
 RUN rm -rf /tmp/apache-atlas-${VERSION}-atlas-index-repair.zip
 
+ADD solr-config /opt/solr-config
+
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
