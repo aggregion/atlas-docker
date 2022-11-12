@@ -1,7 +1,6 @@
 FROM openjdk:8
 
 ARG VERSION=3.0.0-SNAPSHOT
-ARG SOLR_VERSION=8.11.2
 
 ENV ATLAS_INSTALL=/opt/install/apache-atlas-${VERSION}
 ENV ATLAS_CONF_INSTALL=${ATLAS_INSTALL}/conf
@@ -9,24 +8,28 @@ ENV ATLAS_BIN_INSTALL=${ATLAS_INSTALL}/bin
 ENV ATLAS_HOME=/opt/apache-atlas-${VERSION}
 ENV ATLAS_CONF=/opt/apache-atlas-${VERSION}/conf
 ENV ATLAS_BIN=/opt/apache-atlas-${VERSION}/bin
-ENV MANAGE_LOCAL_SOLR=true
+ENV MANAGE_LOCAL_SOLR=false
 ENV MANAGE_LOCAL_HBASE=false
 
-ENV SOLR_DIR=/opt/solr-${SOLR_VERSION}
-ENV SOLR_HOME=/opt/solr-${SOLR_VERSION}/server/solr
-ENV SOLR_BIN=${SOLR_DIR}/bin
 
 
 # Install python
 RUN apt-get update
 RUN apt-get install -y python2.7 netcat gettext-base supervisor lsof
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
 
 # Create atlas user
 RUN groupadd -r -g 47144 atlas && useradd -r -u 47145 -g atlas atlas
 
 # Add files
 ADD apache-atlas-${VERSION}-bin.tar.gz /opt
-ADD solr-${SOLR_VERSION}.tgz /opt
+ADD apache-atlas-${VERSION}-atlas-index-repair.zip /tmp
+RUN cd /tmp && unzip apache-atlas-${VERSION}-atlas-index-repair.zip
+RUN cp /tmp/atlas-index-repair/repair_index.py "${ATLAS_BIN}/"
+RUN mkdir -p "${ATLAS_HOME}/libext"
+RUN cp /tmp/atlas-index-repair/atlas-index-repair-tool-${VERSION}.jar "${ATLAS_HOME}/libext/"
+RUN rm -rf /tmp/atlas-index-repair
+RUN rm -rf /tmp/apache-atlas-${VERSION}-atlas-index-repair.zip
 
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
