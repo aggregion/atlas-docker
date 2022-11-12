@@ -1,6 +1,7 @@
 FROM openjdk:8
 
 ARG VERSION=3.0.0-SNAPSHOT
+ARG SOLR_VERSION=8.11.2
 
 ENV ATLAS_INSTALL=/opt/install/apache-atlas-${VERSION}
 ENV ATLAS_CONF_INSTALL=${ATLAS_INSTALL}/conf
@@ -8,19 +9,24 @@ ENV ATLAS_BIN_INSTALL=${ATLAS_INSTALL}/bin
 ENV ATLAS_HOME=/opt/apache-atlas-${VERSION}
 ENV ATLAS_CONF=/opt/apache-atlas-${VERSION}/conf
 ENV ATLAS_BIN=/opt/apache-atlas-${VERSION}/bin
-ENV MANAGE_LOCAL_SOLR=false
+ENV MANAGE_LOCAL_SOLR=true
 ENV MANAGE_LOCAL_HBASE=false
+
+ENV SOLR_DIR=/opt/solr-${SOLR_VERSION}
+ENV SOLR_HOME=/opt/solr-${SOLR_VERSION}/server/solr
+ENV SOLR_BIN=${SOLR_DIR}/bin
+
 
 # Install python
 RUN apt-get update
-RUN apt-get install -y python2.7 netcat gettext-base
+RUN apt-get install -y python2.7 netcat gettext-base supervisor lsof
 
 # Create atlas user
 RUN groupadd -r -g 47144 atlas && useradd -r -u 47145 -g atlas atlas
 
 # Add files
-COPY atlas.tar.gz /opt/atlas.tar.gz
-RUN cd /opt && tar xzf atlas.tar.gz
+ADD apache-atlas-${VERSION}-bin.tar.gz /opt
+ADD solr-${SOLR_VERSION}.tgz /opt
 
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh

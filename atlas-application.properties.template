@@ -1,4 +1,4 @@
-atlas.graph.storage.backend=cassandra
+atlas.graph.storage.backend=cql
 atlas.graph.storage.hostname=${CASSANDRA_HOST}
 atlas.graph.storage.clustername=${CASSANDRA_HOST}
 atlas.graph.storage.port=${CASSANDRA_PORT}
