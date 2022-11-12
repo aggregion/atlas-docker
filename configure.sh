@@ -10,6 +10,7 @@ export ZOOKEEPER_HOST=${ZOOKEEPER_HOST:=zoo1,zoo2,zoo3}
 export SOLR_HOST=${SOLR_HOST:=localhost}
 export SOLR_PORT=${SOLR_PORT:=8983}
 export KAFKA_HOST=${KAFKA_HOST:=kafka}
+export SOLR_ZOOKEEPER_HOST=${SOLR_ZOOKEEPER_HOST:=$ZOOKEEPER_HOST/solr}
 
 envsubst < ${TEMPLATE_FILE} > ${PROPS_FILE}
 
