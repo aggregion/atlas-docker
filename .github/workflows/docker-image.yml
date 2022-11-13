@@ -39,7 +39,7 @@ jobs:
           git_hash=${GITHUB_SHA::8}
           git_branch=$(echo ${GITHUB_REF} | sed 's;refs/heads/;;' | sed -r 's/[:/.]+/-/g' | tr -dc 'a-zA-Z0-9_-')
           git_branch_build=""
-          package_version=$(cat package.json | jq .version)
+          package_version=$(cat package.json | jq --raw-output .version)
           cache_tag="develop"
           if [[ "$GITHUB_REF" != "refs/heads/"* ]]; then
             unset git_branch
