@@ -1,0 +1,15 @@
+{
+  "name": "atlas-docker",
+  "version": "1.39.0",
+  "description": "Docker image for Apache Atlas",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aggregion/atlas-docker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aggregion/atlas-docker/issues"
+  },
+  "homepage": "https://github.com/aggregion/atlas-docker#readme"
+}
