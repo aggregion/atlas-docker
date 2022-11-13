@@ -39,6 +39,7 @@ jobs:
           git_hash=${GITHUB_SHA::8}
           git_branch=$(echo ${GITHUB_REF} | sed 's;refs/heads/;;' | sed -r 's/[:/.]+/-/g' | tr -dc 'a-zA-Z0-9_-')
           git_branch_build=""
+          package_version=$(cat package.json | jq .version)
           cache_tag="develop"
           if [[ "$GITHUB_REF" != "refs/heads/"* ]]; then
             unset git_branch
@@ -66,6 +67,7 @@ jobs:
           echo "::group::Push images"
           for tag in $git_hash $git_tag $git_branch $git_branch_build ${{env.INPUT_CUSTOMTAG}} $othertags $cache_tag; do
             docker tag $image:$git_hash $image:$tag
-            docker push $image:$tag
           done
+          docker tag $image:$git_hash  $image:$package_version
+          docker push $image -a
           echo "::endgroup::"

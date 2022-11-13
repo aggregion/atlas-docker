@@ -1,4 +1,4 @@
-# Apache Atlas 3.0.0 Docker image 
+# Apache Atlas 3.0.0 Docker image
 
 ## Make
 
