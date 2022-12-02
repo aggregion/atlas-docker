@@ -67,8 +67,8 @@ atlas.enableTLS=false
 # Authentication config
 
 atlas.authentication.method.kerberos=false
-atlas.authentication.method.file=true
-
+atlas.authentication.method.file=${FILE_ENABLE_AUTH}
+${KEYCLOAK_AUTH}
 #### ldap.type= LDAP or AD
 atlas.authentication.method.ldap.type=none
 
