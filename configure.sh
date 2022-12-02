@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CONF_DIR=/Users/dmitrysomov/projects/aggregion/backend/atlas-docker
+CONF_DIR=${ATLAS_HOME:=/opt/atlas}/conf
 TEMPLATE_FILE=${CONF_DIR}/atlas-application.properties.template
 PROPS_FILE=${CONF_DIR}/atlas-application.properties
 KEYLOAK_JSON_FILE=${CONF_DIR}/keycloak.json
