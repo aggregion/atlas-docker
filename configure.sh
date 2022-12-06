@@ -41,7 +41,7 @@ if [ "$KEYCLOAK_ENABLE_AUTH" = "true" ]; then
   export KEYCLOAK_AUTH="
 ######## Keycloak properties #########
 atlas.authentication.method.keycloak=true
-atlas.authentication.method.keycloak.file=keycloak.json
+atlas.authentication.method.keycloak.file=${sys:atlas.home}/conf/keycloak.json
 "
 fi
 
