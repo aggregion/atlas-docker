@@ -32,7 +32,9 @@ export KEYCLOAK_JSON="
   \"credentials\": {
     \"secret\": \"$KEYCLOAK_CREDENTIALS_SECRET\"
   },
-  \"confidential-port\": 0
+  \"confidential-port\": 0,
+  \"principal-attribute\": \"preferred_username\",
+  \"autodetect-bearer-only\": true
 }
 "
 
@@ -42,6 +44,7 @@ if [ "$KEYCLOAK_ENABLE_AUTH" = "true" ]; then
 ######## Keycloak properties #########
 atlas.authentication.method.keycloak=true
 atlas.authentication.method.keycloak.file=\${sys:atlas.home}/conf/keycloak.json
+atlas.authentication.method.keycloak.ugi-groups=false
 "
 fi
 
