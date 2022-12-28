@@ -48,6 +48,12 @@ atlas.authentication.method.keycloak.ugi-groups=false
 "
 fi
 
+if [[ -n "$TRUSTSTORE_FILE_PATH" ]]; then
+  export TRUSTSTORE_FILE_SETTINGS="
+truststore.file=$TRUSTSTORE_FILE_PATH
+"
+fi
+
 envsubst < ${TEMPLATE_FILE} > ${PROPS_FILE}
 
 ln -s /usr/bin/python2.7 /usr/bin/python

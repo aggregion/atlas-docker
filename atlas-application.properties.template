@@ -57,8 +57,7 @@ atlas.notification.hook.retry.interval=1000
 
 # SSL config
 atlas.enableTLS=false
-
-#truststore.file=/path/to/truststore.jks
+${TRUSTSTORE_FILE_SETTINGS}
 #cert.stores.credential.provider.path=jceks://file/path/to/credentialstore.jceks
 
 #following only required for 2-way SSL
