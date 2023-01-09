@@ -15,7 +15,7 @@ ENV MANAGE_LOCAL_HBASE=false
 
 # Install python
 RUN apt-get update
-RUN apt-get install -y python2.7 netcat gettext-base supervisor lsof
+RUN apt-get install -y python2.7 netcat gettext-base supervisor lsof expect
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
 
 # Create atlas user

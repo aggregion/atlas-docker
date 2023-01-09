@@ -51,6 +51,7 @@ fi
 if [ -n "$TRUSTSTORE_FILE_PATH" ]; then
   export TRUSTSTORE_FILE_SETTINGS="
 truststore.file=$TRUSTSTORE_FILE_PATH
+cert.stores.credential.provider.path=$CREDENTIAL_PROVIDER_STORE_FILE
 "
 fi
 
