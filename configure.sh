@@ -48,7 +48,7 @@ atlas.authentication.method.keycloak.ugi-groups=false
 "
 fi
 
-if [[ -n "$TRUSTSTORE_FILE_PATH" ]]; then
+if [ -n "$TRUSTSTORE_FILE_PATH" ]; then
   export TRUSTSTORE_FILE_SETTINGS="
 truststore.file=$TRUSTSTORE_FILE_PATH
 "
