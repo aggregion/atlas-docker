@@ -59,9 +59,6 @@ atlas.notification.hook.retry.interval=1000
 atlas.enableTLS=false
 ${TRUSTSTORE_FILE_SETTINGS}
 
-#following only required for 2-way SSL
-#keystore.file=/path/to/keystore.jks
-
 # Authentication config
 
 atlas.authentication.method.kerberos=false
