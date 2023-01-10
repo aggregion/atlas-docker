@@ -9,7 +9,7 @@
 ## Run
 
 ```shell
-docker run 
+docker run
   -v /atlas-application.properties:/opt/atlas/conf/atlas-application.properties
   -e SOLR_HOST=solr
   -e SOLR_PORT=8983

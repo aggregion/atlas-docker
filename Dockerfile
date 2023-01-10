@@ -11,11 +11,9 @@ ENV ATLAS_BIN=/opt/apache-atlas-${VERSION}/bin
 ENV MANAGE_LOCAL_SOLR=false
 ENV MANAGE_LOCAL_HBASE=false
 
-
-
 # Install python
 RUN apt-get update
-RUN apt-get install -y python2.7 netcat gettext-base supervisor lsof
+RUN apt-get install -y python2.7 netcat gettext-base supervisor lsof expect
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
 
 # Create atlas user
@@ -38,6 +36,9 @@ RUN chmod +x /entrypoint.sh
 
 ADD configure.sh /configure.sh
 RUN chmod +x /configure.sh
+
+ADD truststore-password.exp /truststore-password.exp
+RUN chmod +x /truststore-password.exp
 
 ADD atlas-application.properties.template /opt/apache-atlas-${VERSION}/conf/atlas-application.properties.template
 ADD models/9000-Aggregion/ /opt/apache-atlas-${VERSION}/models/9000-Aggregion/
