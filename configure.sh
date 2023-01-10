@@ -21,6 +21,8 @@ export KEYCLOAK_RESOURCE=${KEYCLOAK_RESOURCE:=atlas} # client id
 export KEYCLOAK_CREDENTIALS_SECRET=${KEYCLOAK_CREDENTIALS_SECRET:=atlasclientsecret}
 export KEYCLOAK_SSL_REQUIRED=${KEYCLOAK_SSL_REQUIRED:=external}
 export KEYCLOAK_AUTH_SERVER_URL=${KEYCLOAK_AUTH_SERVER_URL:=https://keycloak.aggregion.com/}
+export CREDENTIAL_PROVIDER_STORE_FILE=${CREDENTIAL_PROVIDER_STORE_FILE:=/tmp/creds.jceks}
+
 # you can get keycloak.json from Keycloak Admin Console:
 # Clients -> Client Details -> Action -> Download adapter config -> Format option: "Keycloak OIDC JSON"
 export KEYCLOAK_JSON="
