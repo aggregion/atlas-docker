@@ -1,6 +1,6 @@
 {
   "name": "atlas-docker",
-  "version": "1.42.0",
+  "version": "1.42.1",
   "description": "Docker image for Apache Atlas",
   "repository": {
     "type": "git",
